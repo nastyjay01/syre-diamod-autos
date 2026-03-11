@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse luxury vehicles at Syre Diamond Autos. Premium cars at competitive prices.">
+    <title>Vehicles | Syre Diamond Autos</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .filters-bar {
+            background: var(--color-gray-50);
+            padding: 1.5rem 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+        .filters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+        .filter-group label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--color-gray-600);
+            margin-bottom: 0.25rem;
+        }
+        .filter-group select,
+        .filter-group input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid var(--color-gray-300);
+            border-radius: var(--radius-sm);
+            font-size: 0.875rem;
+        }
+        .results-count {
+            text-align: center;
+            color: var(--color-gray-500);
+            margin-bottom: 2rem;
+        }
+        .no-results {
+            text-align: center;
+            padding: 4rem 1rem;
+            color: var(--color-gray-500);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="/" class="site-logo">SYRE DIAMOND AUTOS</a>
+            <nav class="main-navigation">
+                <a href="/">Home</a>
+                <a href="vehicles.html" style="color: var(--color-primary);">Vehicles</a>
+                <a href="/#sell">Sell Your Car</a>
+                <a href="/#contact">Contact</a>
+                <a href="tel:+254700000000" class="btn btn-primary" style="padding: 0.75rem 1.5rem; font-size: 0.875rem;">Contact Us</a>
+            </nav>
+            <button class="mobile-menu-toggle" aria-label="Open menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="vehicles-section">
+            <div class="container">
+                <div class="section-header">
+                    <h1 class="section-title">All Vehicles</h1>
+                    <p class="section-subtitle">Browse our complete inventory</p>
+                </div>
+
+                <!-- Filters -->
+                <div class="filters-bar">
+                    <form class="filters-grid" id="vehicle-filters">
+                        <div class="filter-group">
+                            <label>Search</label>
+                            <input type="text" id="filter-search" placeholder="Model name...">
+                        </div>
+                        <div class="filter-group">
+                            <label>Brand</label>
+                            <select id="filter-brand">
+                                <option value="">All Brands</option>
+                                <option value="toyota">Toyota</option>
+                                <option value="mazda">Mazda</option>
+                                <option value="nissan">Nissan</option>
+                                <option value="subaru">Subaru</option>
+                                <option value="honda">Honda</option>
+                                <option value="mercedes">Mercedes-Benz</option>
+                                <option value="bmw">BMW</option>
+                                <option value="audi">Audi</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Min Price</label>
+                            <input type="number" id="filter-min-price" placeholder="0">
+                        </div>
+                        <div class="filter-group">
+                            <label>Max Price</label>
+                            <input type="number" id="filter-max-price" placeholder="Any">
+                        </div>
+                        <div class="filter-group">
+                            <label>&nbsp;</label>
+                            <button type="submit" class="btn-submit" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Filter</button>
+                        </div>
+                    </form>
+                </div>
+
+                <p class="results-count" id="results-count">Loading vehicles...</p>
+
+                <!-- Vehicle Grid -->
+                <div class="vehicle-grid" id="vehicles-list">
+                    <!-- Vehicles loaded by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>SYRE DIAMOND AUTOS</h4>
+                    <p style="color: var(--color-gray-400); font-size: 0.875rem; line-height: 1.6;">
+                        Luxury vehicles for discerning buyers.
+                    </p>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="vehicles.html">Vehicles</a></li>
+                        <li><a href="/#sell">Sell Your Car</a></li>
+                        <li><a href="/#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:+254700000000">📞 +254 700 000 000</a></li>
+                        <li><a href="mailto:info@syrediamondautos.com">✉️ info@syrediamondautos.com</a></li>
+                        <li>📍 Nairobi, Kenya</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Syre Diamond Autos. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/254700000000" class="whatsapp-float" target="_blank" rel="noopener">
+        <svg viewBox="0 0 32 32" width="32" height="32"><path fill="#25D366" d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.082c2.42 1.37 5.173 2.082 8.067 2.082 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-4.713 1.237 1.263-4.667-0.317-0.517c-1.267-2.067-1.933-4.433-1.933-6.867 0-7.333 5.967-13.3 13.3-13.3s13.3 5.967 13.3 13.3-5.967 13.3-13.3 13.3z"/></svg>
+    </a>
+
+    <script src="js/main.js"></script>
+    <script src="js/vehicles.js"></script>
+    <script>
+        // Filter functionality
+        document.getElementById('vehicle-filters').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const search = document.getElementById('filter-search').value;
+            const brand = document.getElementById('filter-brand').value;
+            const minPrice = document.getElementById('filter-min-price').value;
+            const maxPrice = document.getElementById('filter-max-price').value;
+            
+            const filtered = window.SyreVehicles.filter(search, brand, minPrice, maxPrice);
+            const container = document.getElementById('vehicles-list');
+            const countEl = document.getElementById('results-count');
+            
+            countEl.textContent = filtered.length + ' vehicle' + (filtered.length !== 1 ? 's' : '') + ' found';
+            
+            if (filtered.length === 0) {
+                container.innerHTML = '<div class="no-results"><h3>No vehicles found</h3><p>Try adjusting your filters</p></div>';
+            } else {
+                const html = filtered.map(v => `
+                    <a href="vehicle-detail.html?id=${v.id}" class="vehicle-card">
+                        <div class="vehicle-image">
+                            <img src="${v.image}" alt="${v.title}" loading="lazy">
+                            ${v.badge ? `<span class="vehicle-badge">${v.badge}</span>` : ''}
+                        </div>
+                        <div class="vehicle-content">
+                            <h3 class="vehicle-title">${v.title}</h3>
+                            <div class="vehicle-price">${v.currency} ${v.price.toLocaleString()}</div>
+                            <div class="vehicle-meta">
+                                <span>${v.year}</span>
+                                <span>${v.mileage.toLocaleString()} km</span>
+                                <span>${v.transmission}</span>
+                            </div>
+                        </div>
+                    </a>
+                `).join('');
+                container.innerHTML = html;
+            }
+        });
+
+        // Initial load
+        document.addEventListener('DOMContentLoaded', function() {
+            const allVehicles = window.SyreVehicles.getAll();
+            document.getElementById('vehicles-list').innerHTML = allVehicles.map(v => `
+                <a href="vehicle-detail.html?id=${v.id}" class="vehicle-card">
+                    <div class="vehicle-image">
+                        <img src="${v.image}" alt="${v.title}" loading="lazy">
+                        ${v.badge ? `<span class="vehicle-badge">${v.badge}</span>` : ''}
+                    </div>
+                    <div class="vehicle-content">
+                        <h3 class="vehicle-title">${v.title}</h3>
+                        <div class="vehicle-price">${v.currency} ${v.price.toLocaleString()}</div>
+                        <div class="vehicle-meta">
+                            <span>${v.year}</span>
+                            <span>${v.mileage.toLocaleString()} km</span>
+                            <span>${v.transmission}</span>
+                        </div>
+                    </div>
+                </a>
+            `).join('');
+            document.getElementById('results-count').textContent = allVehicles.length + ' vehicles available';
+        });
+    </script>
+</body>
+</html>

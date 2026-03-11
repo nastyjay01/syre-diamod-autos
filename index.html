@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Syre Diamond Autos - Luxury vehicles for discerning buyers. Premium quality, exceptional service.">
+    <title>Syre Diamond Autos | Luxury Redefined</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="/" class="site-logo">
+                <img src="images/logo.jpg" alt="Syre Diamond Autos" style="height: 50px; width: auto;">
+            </a>
+            <nav class="main-navigation">
+                <a href="/">Home</a>
+                <a href="vehicles.html">Vehicles</a>
+                <a href="#sell">Sell Your Car</a>
+                <a href="#contact">Contact</a>
+                <a href="tel:+254700000000" class="btn btn-primary" style="padding: 0.75rem 1.5rem; font-size: 0.875rem;">Contact Us</a>
+            </nav>
+            <button class="mobile-menu-toggle" aria-label="Open menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h1 class="hero-title">
+                Luxury <strong>Redefined</strong>
+            </h1>
+            <p class="hero-subtitle">Premium vehicles for discerning buyers. Experience excellence.</p>
+            
+            <div class="hero-buttons">
+                <a href="vehicles.html" class="btn btn-primary">Explore Vehicles</a>
+                <a href="#sell" class="btn btn-outline">Sell Your Car</a>
+                <a href="#contact" class="btn btn-outline">Contact Us</a>
+            </div>
+        </section>
+
+        <!-- Search Section -->
+        <section class="search-section" id="search">
+            <div class="search-card">
+                <div class="search-tabs">
+                    <button class="search-tab active" data-tab="search">Search</button>
+                    <button class="search-tab" data-tab="brand">Brand</button>
+                    <button class="search-tab" data-tab="budget">Budget</button>
+                </div>
+                
+                <form class="search-form" id="vehicle-search-form" action="vehicles.html" method="GET">
+                    <div class="search-tab-content active" id="tab-search">
+                        <div class="form-group">
+                            <label class="form-label">Search vehicle</label>
+                            <div class="search-input-wrapper">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                </svg>
+                                <input type="text" class="form-input" name="q" placeholder="e.g., demio or vitz">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-submit">Search</button>
+                    </div>
+                    
+                    <div class="search-tab-content" id="tab-brand" style="display: none;">
+                        <div class="form-group">
+                            <label class="form-label">Select Brand</label>
+                            <select class="form-select" name="brand">
+                                <option value="">All Brands</option>
+                                <option value="toyota">Toyota</option>
+                                <option value="mazda">Mazda</option>
+                                <option value="nissan">Nissan</option>
+                                <option value="subaru">Subaru</option>
+                                <option value="honda">Honda</option>
+                                <option value="mercedes">Mercedes-Benz</option>
+                                <option value="bmw">BMW</option>
+                                <option value="audi">Audi</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-submit">Browse Brand</button>
+                    </div>
+                    
+                    <div class="search-tab-content" id="tab-budget" style="display: none;">
+                        <div class="form-group">
+                            <label class="form-label">Budget Range</label>
+                            <div class="price-filters">
+                                <button type="button" class="price-filter-btn" data-max="500000">Under 500K</button>
+                                <button type="button" class="price-filter-btn" data-min="500000" data-max="1000000">500K - 1M</button>
+                                <button type="button" class="price-filter-btn" data-min="1000000" data-max="2000000">1M - 2M</button>
+                                <button type="button" class="price-filter-btn" data-min="2000000" data-max="5000000">2M - 5M</button>
+                                <button type="button" class="price-filter-btn" data-min="5000000">Above 5M</button>
+                            </div>
+                            <input type="hidden" name="min_price" id="min_price">
+                            <input type="hidden" name="max_price" id="max_price">
+                        </div>
+                        <button type="submit" class="btn-submit">Filter by Budget</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Featured Vehicles -->
+        <section class="vehicles-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Featured Vehicles</h2>
+                    <p class="section-subtitle">Check out our latest arrivals</p>
+                </div>
+                
+                <div class="vehicle-grid" id="featured-vehicles">
+                    <!-- Vehicles loaded from JSON -->
+                </div>
+                
+                <div class="text-center" style="margin-top: 3rem;">
+                    <a href="vehicles.html" class="btn btn-primary" style="display: inline-block; padding: 1rem 2rem;">View All Vehicles</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Loan Calculator -->
+        <section class="loan-calculator-section" style="padding: 4rem 1rem; background: var(--color-gray-50);">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Calculate Your Loan</h2>
+                    <p class="section-subtitle">Plan your purchase with our easy loan calculator</p>
+                </div>
+                
+                <div class="loan-calculator">
+                    <div class="loan-input-group">
+                        <label for="loan-amount">Loan Amount (KSh)</label>
+                        <input type="range" id="loan-amount-range" min="100000" max="10000000" step="50000" value="1500000">
+                        <input type="number" id="loan-amount" value="1500000" style="margin-top: 0.5rem; width: 100%; padding: 0.75rem; border: 1px solid var(--color-gray-300); border-radius: 4px;">
+                        <div class="loan-value" id="loan-amount-display">KSh 1,500,000</div>
+                    </div>
+                    
+                    <div class="loan-input-group">
+                        <label for="loan-rate">Interest Rate (% per annum)</label>
+                        <input type="range" id="loan-rate-range" min="1" max="30" step="0.5" value="12">
+                        <input type="number" id="loan-rate" value="12" step="0.5" style="margin-top: 0.5rem; width: 100%; padding: 0.75rem; border: 1px solid var(--color-gray-300); border-radius: 4px;">
+                        <div class="loan-value" id="loan-rate-display">12%</div>
+                    </div>
+                    
+                    <div class="loan-input-group">
+                        <label for="loan-months">Loan Term (Months)</label>
+                        <select id="loan-months" style="width: 100%; padding: 0.75rem; margin-top: 0.5rem; border: 1px solid var(--color-gray-300); border-radius: 4px;">
+                            <option value="12">12 months (1 year)</option>
+                            <option value="24">24 months (2 years)</option>
+                            <option value="36">36 months (3 years)</option>
+                            <option value="48" selected>48 months (4 years)</option>
+                            <option value="60">60 months (5 years)</option>
+                            <option value="72">72 months (6 years)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="loan-result">
+                        <div style="font-size: 0.875rem; color: var(--color-gray-400);">Your Monthly Payment</div>
+                        <div class="monthly-payment" id="monthly-payment">KSh 0</div>
+                        <div class="loan-total" id="loan-total">Total Payment: KSh 0</div>
+                    </div>
+                    
+                    <p class="loan-disclaimer">
+                        <strong>Disclaimer:</strong> This calculator provides estimates only. Actual loan terms may vary based on credit assessment and bank policies.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sell Your Car -->
+        <section class="sell-section" id="sell" style="padding: 4rem 1rem;">
+            <div class="container" style="max-width: 700px;">
+                <div class="section-header">
+                    <h2 class="section-title">Sell Your Car</h2>
+                    <p class="section-subtitle">Get a fair valuation for your vehicle</p>
+                </div>
+                
+                <form class="sell-car-form" name="sell-car" method="POST" action="https://formspree.io/f/YOUR_FORMSPREE_ID" netlify-honeypot="bot-field">
+                    <input type="hidden" name="_subject" value="New Car Sale Submission - Syre Diamond Autos">
+                    <input type="hidden" name="_cc" value="info@syrediamondautos.com">
+                    <input type="hidden" name="_template" value="table">
+                    <p style="display: none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+                    
+                    <div class="form-row">
+                        <label>Make *</label>
+                        <input type="text" name="make" required placeholder="e.g., Toyota">
+                    </div>
+                    
+                    <div class="form-row">
+                        <label>Model *</label>
+                        <input type="text" name="model" required placeholder="e.g., Demio">
+                    </div>
+                    
+                    <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div>
+                            <label>Year *</label>
+                            <input type="number" name="year" required placeholder="2018">
+                        </div>
+                        <div>
+                            <label>Mileage (km) *</label>
+                            <input type="number" name="mileage" required placeholder="50000">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <label>Description *</label>
+                        <textarea name="description" rows="4" required placeholder="Describe the car condition, service history, any modifications..."></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <label>Your Name *</label>
+                        <input type="text" name="name" required>
+                    </div>
+                    
+                    <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div>
+                            <label>Phone *</label>
+                            <input type="tel" name="phone" required placeholder="+254 7XX XXX XXX">
+                        </div>
+                        <div>
+                            <label>Email *</label>
+                            <input type="email" name="email" required>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit">Submit for Valuation</button>
+                    
+                    <p class="form-note">Our team will contact you within 24-48 hours with a valuation.</p>
+                    <p class="form-note" style="font-size: 0.75rem;">Protected by Formspree spam filtering.</p>
+                </form>
+            </div>
+        </section>
+
+        <!-- Contact Form -->
+        <section class="contact-section" id="contact-form" style="padding: 4rem 1rem;">
+            <div class="container" style="max-width: 600px;">
+                <div class="section-header">
+                    <h2 class="section-title">Send Us a Message</h2>
+                    <p class="section-subtitle">We'll get back to you within 24 hours</p>
+                </div>
+                
+                <form class="sell-car-form" name="contact" method="POST" action="https://formspree.io/f/YOUR_FORMSPREE_ID">
+                    <input type="hidden" name="_subject" value="New Contact Enquiry - Syre Diamond Autos">
+                    <input type="hidden" name="_cc" value="info@syrediamondautos.com">
+                    
+                    <div class="form-row">
+                        <label>Your Name *</label>
+                        <input type="text" name="name" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <label>Email *</label>
+                        <input type="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <label>Phone</label>
+                        <input type="tel" name="phone" placeholder="+254 7XX XXX XXX">
+                    </div>
+                    
+                    <div class="form-row">
+                        <label>Message *</label>
+                        <textarea name="message" rows="4" required placeholder="I'm interested in..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Contact Info -->
+        <section class="contact-section" id="contact" style="padding: 4rem 1rem; background: var(--color-gray-900); color: white;">
+        <section class="contact-section" id="contact" style="padding: 4rem 1rem; background: var(--color-gray-900); color: white;">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" style="color: white;">Contact Us</h2>
+                    <p class="section-subtitle" style="color: var(--color-gray-400);">Get in touch with our team</p>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                    <div>
+                        <h4 style="margin-bottom: 1rem;">📍 Visit Us</h4>
+                        <p style="color: var(--color-gray-400);">Nairobi, Kenya</p>
+                    </div>
+                    <div>
+                        <h4 style="margin-bottom: 1rem;">📞 Call Us</h4>
+                        <p style="color: var(--color-gray-400);"><a href="tel:+254700000000" style="color: white;">+254 700 000 000</a></p>
+                    </div>
+                    <div>
+                        <h4 style="margin-bottom: 1rem;">✉️ Email Us</h4>
+                        <p style="color: var(--color-gray-400);"><a href="mailto:info@syrediamondautos.com" style="color: white;">info@syrediamondautos.com</a></p>
+                    </div>
+                    <div>
+                        <h4 style="margin-bottom: 1rem;">💬 WhatsApp</h4>
+                        <p style="color: var(--color-gray-400);"><a href="https://wa.me/254700000000" style="color: white;">Chat on WhatsApp</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>SYRE DIAMOND AUTOS</h4>
+                    <p style="color: var(--color-gray-400); font-size: 0.875rem; line-height: 1.6;">
+                        Luxury vehicles for discerning buyers. Premium quality, exceptional service, unforgettable experience.
+                    </p>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="vehicles.html">All Vehicles</a></li>
+                        <li><a href="#sell">Sell Your Car</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Brands</h4>
+                    <ul>
+                        <li><a href="vehicles.html?brand=toyota">Toyota</a></li>
+                        <li><a href="vehicles.html?brand=mazda">Mazda</a></li>
+                        <li><a href="vehicles.html?brand=mercedes">Mercedes-Benz</a></li>
+                        <li><a href="vehicles.html?brand=bmw">BMW</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:+254700000000">📞 +254 700 000 000</a></li>
+                        <li><a href="mailto:info@syrediamondautos.com">✉️ info@syrediamondautos.com</a></li>
+                        <li>📍 Nairobi, Kenya</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Syre Diamond Autos. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/254700000000" class="whatsapp-float" target="_blank" rel="noopener">
+        <svg viewBox="0 0 32 32" width="32" height="32"><path fill="#25D366" d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.082c2.42 1.37 5.173 2.082 8.067 2.082 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-4.713 1.237 1.263-4.667-0.317-0.517c-1.267-2.067-1.933-4.433-1.933-6.867 0-7.333 5.967-13.3 13.3-13.3s13.3 5.967 13.3 13.3-5.967 13.3-13.3 13.3z"/></svg>
+    </a>
+
+    <script src="js/main.js"></script>
+    <script src="js/loan-calculator.js"></script>
+    <script src="js/vehicles.js"></script>
+</body>
+</html>
